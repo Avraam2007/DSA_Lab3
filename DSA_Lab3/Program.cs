@@ -18,6 +18,8 @@ namespace DSA_Lab3 {
             Console.WriteLine(":         \\/___/     \\/_/\\/_/    \\/___/                 \\/_//_/    \\/___/      :\r");
             Console.WriteLine(":                                                                              :\r");
             Console.WriteLine("················································································");
+
+            Console.WriteLine("\n!!!GRAPH!!!\n");
             List<List<int>> adjGraph = new List<List<int>> {
                 new List<int>() { 1, 2 },
                 new List<int>() { 0, 3, 4 },
@@ -27,6 +29,14 @@ namespace DSA_Lab3 {
                 new List<int>() { 2 },
                 new List<int>() { 2 }
             };
+
+            foreach (var component in adjGraph) {
+                Console.Write($"Node {adjGraph.IndexOf(component)}\nLinks: ");
+                foreach (var link in component) {
+                    Console.Write(link + " ");
+                }
+                Console.WriteLine("\n");
+            }
 
             Search search = new Search(adjGraph);
             List<List<int>> components = search.GetComponents();
